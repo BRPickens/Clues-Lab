@@ -7,12 +7,16 @@ $(document).ready(function () {
     for (i = 1; i <=100; i++) {
         var element = {
             friend: myFriends[Math.floor((Math.random() * myFriends.length) + 0)],
-            weapons: weaponName[Math.floor((Math.random() * weaponName) + 0)],
-            locations: locationsName[Math.floor((Math.random() * locationsName) + 0)]
+            weapons: weaponName[Math.floor((Math.random() * weaponName.length) + 0)],
+            locations: locationsName[Math.floor((Math.random() * locationsName.length) + 0)]
         }
-        accusedHeading
+        accusedHeading = $(`<h3>~~~Accusation ${i}: ~~~~~~~~</h3>`).appendTo('body');
+        accusedHeading.click(alertA.bind(element));
         }
-    })
+        function alertA () {
+            alert(`I accuse ${this.friend}, with the ${this.weapons} in the ${this.locations}!`)
+        }
+    });
 
 
 
